@@ -1,0 +1,49 @@
+﻿@model OnlineQuizClasses.QuizManagement.Quiz
+@{
+    ViewBag.Title = "QuizInfo";
+}
+
+
+
+@using (Html.BeginForm("QuizInfo", "Quiz", FormMethod.Post, new { }))
+{
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a>Quiz Details</a></h4>
+
+                    <div class="md-form ">
+                        <i class="fa fa-heading prefix"></i>
+                        @Html.TextBoxFor(m => m.QuizTitle, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.QuizTitle)<br />
+                        <center>  @Html.ValidationMessageFor(m => m.QuizTitle, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextBoxFor(m => m.TotalQuestion, null, new { @class = "form-control", type = "number" })
+                        @Html.LabelFor(m => m.TotalQuestion)<br />
+                        <center> @Html.ValidationMessageFor(m => m.TotalQuestion, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-clock prefix"></i>
+                        @Html.TextBoxFor(m => m.TotalTime, null, new { @class = "form-control", type = "time" })
+                        <br />
+                        <center>@Html.ValidationMessageFor(m => m.TotalTime, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-list-alt prefix"></i>
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control md-textarea", rows = "4" })
+                        @Html.LabelFor(m => m.Description)<br />
+                        <center>@Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <button type="submit" class="btn btn-deep-purple align-content-center"><span class="fa fa-plus"></span>&nbsp; Add Info</button>
+                </div>
+
+            </div>
+            <!-- Card -->
+
+        </div>
+    </div>
+}
+

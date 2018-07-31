@@ -1,0 +1,340 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC9262C5-9EB3-4B0F-9D66-B3860444F5C0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnLineQuizApplication</RootNamespace>
+    <AssemblyName>OnLineQuizApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\MDB-Free\css\bootstrap.css" />
+    <Content Include="Content\MDB-Free\css\bootstrap.min.css" />
+    <Content Include="Content\MDB-Free\css\mdb.css" />
+    <Content Include="Content\MDB-Free\css\mdb.min.css" />
+    <Content Include="Content\MDB-Free\css\style.css" />
+    <Content Include="Content\MDB-Free\css\style.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\LICENSE.txt" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-brands.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-brands.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-regular.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-regular.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-solid.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fa-solid.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome-all.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome-all.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.min.css" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\MDB-Free\img\lightbox\default-skin.png" />
+    <Content Include="Content\MDB-Free\img\lightbox\default-skin.svg" />
+    <Content Include="Content\MDB-Free\img\lightbox\preloader.gif" />
+    <Content Include="Content\MDB-Free\img\overlays\01.png" />
+    <Content Include="Content\MDB-Free\img\overlays\02.png" />
+    <Content Include="Content\MDB-Free\img\overlays\03.png" />
+    <Content Include="Content\MDB-Free\img\overlays\04.png" />
+    <Content Include="Content\MDB-Free\img\overlays\05.png" />
+    <Content Include="Content\MDB-Free\img\overlays\06.png" />
+    <Content Include="Content\MDB-Free\img\overlays\07.png" />
+    <Content Include="Content\MDB-Free\img\overlays\08.png" />
+    <Content Include="Content\MDB-Free\img\overlays\09.png" />
+    <Content Include="Content\MDB-Free\img\svg\arrow_left.svg" />
+    <Content Include="Content\MDB-Free\img\svg\arrow_right.svg" />
+    <Content Include="Content\MDB-Free\js\bootstrap.js" />
+    <Content Include="Content\MDB-Free\js\bootstrap.min.js" />
+    <Content Include="Content\MDB-Free\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\MDB-Free\js\mdb.js" />
+    <Content Include="Content\MDB-Free\js\mdb.min.js" />
+    <Content Include="Content\MDB-Free\js\modules\chart.js" />
+    <Content Include="Content\MDB-Free\js\modules\enhanced-modals.js" />
+    <Content Include="Content\MDB-Free\js\modules\forms-free.js" />
+    <Content Include="Content\MDB-Free\js\modules\jquery.easing.js" />
+    <Content Include="Content\MDB-Free\js\modules\scrolling-navbar.js" />
+    <Content Include="Content\MDB-Free\js\modules\velocity.min.js" />
+    <Content Include="Content\MDB-Free\js\modules\waves.js" />
+    <Content Include="Content\MDB-Free\js\modules\wow.js" />
+    <Content Include="Content\MDB-Free\js\popper.min.js" />
+    <Content Include="Content\MDB-Free\README.txt" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Bold.eot" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Bold.woff" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Light.eot" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Light.ttf" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Light.woff" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Light.woff2" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Medium.eot" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Medium.woff" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Regular.eot" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Regular.woff" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Thin.eot" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Thin.woff" />
+    <Content Include="Content\MDB-Free\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="Content\MDB-Free\License.pdf" />
+    <Content Include="Content\MDB-Free\scss\core\bootstrap\_functions.scss" />
+    <Content Include="Content\MDB-Free\scss\core\bootstrap\_variables.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_colors.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_global.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_helpers.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_masks.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_mixins.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_typography.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_variables.scss" />
+    <Content Include="Content\MDB-Free\scss\core\_waves.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_animations-basic.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_animations-extended.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_badges.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_buttons.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_cards.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_carousels.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_depreciated.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_dropdowns.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_footers.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_footers.scss~2eb4923e463560bb622339e7f14b0e39900cf607" />
+    <Content Include="Content\MDB-Free\scss\free\_forms.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_input-group.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_list-group.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_modals.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_msc.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_navbars.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_pagination.scss" />
+    <Content Include="Content\MDB-Free\scss\free\_tables.scss" />
+    <Content Include="Content\MDB-Free\scss\mdb.scss" />
+    <Content Include="Content\MDB-Free\scss\style.scss" />
+    <Content Include="Content\MDB-Free\scss\_custom-skin.scss" />
+    <Content Include="Content\MDB-Free\scss\_custom-styles.scss" />
+    <Content Include="Content\MDB-Free\scss\_custom-variables.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\README.md" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-brands.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-regular.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\fa-solid.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\fontawesome.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_animated.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_bordered-pulled.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_core.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_fixed-width.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_icons.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_larger.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_list.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_mixins.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_rotated-flipped.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_screen-reader.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_stacked.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\less\_variables.less" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-brands.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-regular.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\fa-solid.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\fontawesome.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_animated.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_bordered-pulled.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_core.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_fixed-width.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_icons.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_larger.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_list.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_mixins.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_rotated-flipped.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_screen-reader.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_stacked.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\scss\_variables.scss" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\web-fonts-with-css\webfonts\fa-solid-900.woff2" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Quiz\QuizInfo.cshtml" />
+    <Content Include="Views\Quiz\AddQuestions.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\UserImages\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineQuizClasses\OnlineQuizClasses.csproj">
+      <Project>{baa77072-9e53-4d1a-a756-ce29cf091201}</Project>
+      <Name>OnlineQuizClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57752</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57752/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

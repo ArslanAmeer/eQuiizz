@@ -1,0 +1,69 @@
+﻿@model OnlineQuizClasses.QuizManagement.Question
+@{
+    ViewBag.Title = "AddQuestions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int qCount = (int)ViewBag.qCount;
+}
+
+<h2>AddQuestions</h2>
+@using (Html.BeginForm("AddQuestions", "Quiz", new { questionsCount = qCount }, FormMethod.Post))
+{
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a>Add New Questions</a></h4>
+
+                    <div class="md-form ">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextAreaFor(m => m.Questions, new { @class = "form-control md-textarea" })
+                        @Html.LabelFor(m => m.Questions)<br />
+                        <center>  @Html.ValidationMessageFor(m => m.Questions, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-check prefix"></i>
+                        @Html.TextBoxFor(m => m.CorrectAnswer, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.CorrectAnswer)<br />
+                        <center> @Html.ValidationMessageFor(m => m.CorrectAnswer, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <button class="btn btn-primary rounded"><i class="fa fa-plus"></i>Add Options</button>
+                    <div class="md-form">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextBoxFor(m => m.Option1, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Option1)<br />
+                        <center>@Html.ValidationMessageFor(m => m.Option1, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextBoxFor(m => m.Option2, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Option2)<br />
+                        <center>@Html.ValidationMessageFor(m => m.Option2, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextBoxFor(m => m.Option3, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Option3)<br />
+                        <center>@Html.ValidationMessageFor(m => m.Option3, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <div class="md-form">
+                        <i class="fa fa-question prefix"></i>
+                        @Html.TextBoxFor(m => m.Option4, null, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Option4)<br />
+                        <center>@Html.ValidationMessageFor(m => m.Option4, null, new { @class = "text-danger" })</center>
+                    </div>
+                    <p>Question Count: @qCount</p>
+                    <button type="submit" id="btn1" class="btn btn-deep-purple float-right"><span class="fa fa-plus"></span>&nbsp; Add Info</button>
+                </div>
+
+            </div>
+            <!-- Card -->
+
+        </div>
+    </div>
+}
+@section myscript{
+    <script type="text/javascript">
+
+    </script>
+}
+

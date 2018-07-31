@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- Font Awesome -->
+    <link href="~/Content/MDB-Free/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/MDB-Free/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Material Design Bootstrap -->
+    <link href="~/Content/MDB-Free/css/mdb.min.css" rel="stylesheet" />
+    <!-- Your custom styles (optional) -->
+    <link href="~/Content/MDB-Free/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark deep-purple">
+        <a class="navbar-brand" href="#">Quiz-Application</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fa fa-home fa-lg"></i>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-plus fa-lg"></i>&nbsp;Add Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i></i>All Quizes</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="fa fa-user-circle fa-lg"></span>&nbsp;  Usman Haider Khan
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#"><span class="fa fa-cog"></span>&nbsp; Account</a>
+                        <a class="dropdown-item" href="#"><span class="fa fa-folder"></span>&nbsp; My Quizes</a>
+                        <a class="dropdown-item" href="#"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-user fa-lg"></span>&nbsp; Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa fa-user-plus fa-lg"></span>&nbsp; Signup</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script src="~/Content/MDB-Free/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/MDB-Free/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script src="~/Content/MDB-Free/js/mdb.min.js"></script>
+    @RenderSection("myscript", required: false)
+</body>
+</html>

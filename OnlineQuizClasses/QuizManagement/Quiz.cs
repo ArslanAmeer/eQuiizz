@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OnlineQuizClasses.QuizManagement
+{
+    public class Quiz
+    {
+        public int Id { get; set; }
+        [Required]
+        public string QuizTitle { get; set; }
+        [Required]
+        public string Description { get; set; }
+        [Required(ErrorMessage = "Total Question Field is Required")]
+        public int TotalQuestion { get; set; }
+        [Required]
+        public string TotalTime { get; set; }
+        public virtual ICollection<Question> Question { get; set; }
+
+
+        public Quiz()
+        {
+            Question = new List<Question>();
+        }
+    }
+}
