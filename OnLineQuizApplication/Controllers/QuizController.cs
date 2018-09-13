@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using OnlineQuizClasses;
+﻿using OnlineQuizClasses;
 using OnlineQuizClasses.QuizManagement;
+using System;
+using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
 {
@@ -73,7 +70,7 @@ namespace OnLineQuizApplication.Controllers
                 db.SaveChanges();
             }
 
-            ViewBag.qCount = questionsCount + 1;
+            ViewBag.qCount = questionsCount - 1;
             return RedirectToAction("AddQuestions", new { questionsCount = (int)ViewBag.qCount });
         }
     }
