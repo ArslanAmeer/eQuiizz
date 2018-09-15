@@ -72,14 +72,16 @@
     <Compile Include="QuizContext.cs" />
     <Compile Include="QuizManagement\Question.cs" />
     <Compile Include="QuizManagement\Quiz.cs" />
+    <Compile Include="UserManagement\Gender.cs" />
+    <Compile Include="UserManagement\Role.cs" />
+    <Compile Include="UserManagement\User.cs" />
+    <Compile Include="UserManagement\UserHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserManagement\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807051946371_InitialCreate.resx">
       <DependentUpon>201807051946371_InitialCreate.cs</DependentUpon>
