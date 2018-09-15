@@ -276,6 +276,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Quiz\QuizInfo.cshtml" />
     <Content Include="Views\Quiz\AddQuestions.cshtml" />
+    <Content Include="Views\Quiz\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
