@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FinalProjectClasses.UserMgment
+namespace OnlineQuizClasses.UserManagement
 {
     public class Gender
     {
