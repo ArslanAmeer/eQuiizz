@@ -1,6 +1,7 @@
 ﻿using OnlineQuizClasses;
 using OnlineQuizClasses.QuizManagement;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -10,7 +11,8 @@ namespace OnLineQuizApplication.Controllers
         // GET: QuizController
         public ActionResult Index()
         {
-            return View();
+            List<Quiz> quizzes = new QuizHandler().GetAllQuizzes();
+            return View(quizzes);
         }
 
         [HttpGet]
