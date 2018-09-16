@@ -259,6 +259,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\QuizHistoryController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -289,6 +290,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\UserImages\" />
+    <Folder Include="Views\QuizHistory\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
