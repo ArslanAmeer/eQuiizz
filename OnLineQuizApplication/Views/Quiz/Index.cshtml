@@ -1,94 +1,32 @@
 ﻿
+@model IEnumerable<OnlineQuizClasses.QuizManagement.Quiz>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-lg-6 mt-4">
-        <div class="card text-center" style="width: 34rem;">
-            <div class="card-header deep-purple white-text">
-                Quiz No:42345
-            </div>
-            <div class="card-body">
-                <h4 class="logo">Personality Finder</h4>
-                <h5 class="bg-totalq"> Toal Questions:<span class="badge badge-default ml-2" style="border-radius: 50%">3</span></h5>
-                <h5 class="bg-totalq"> Toal Takens:<span class="badge badge-default ml-3" style="border-radius: 50%">9</span></h5>
-                <div>
-                    <p class="fa fa-clock fa-2x"></p>
-                    <h5>Total Time: 8:00</h5>
+    @foreach (var v in Model)
+    {
+        <div class="col-lg-6 mt-4">
+            <div class="card text-center" style="width:28rem;">
+                <div class="card-header deep-purple white-text">
+                    @v.Id
                 </div>
-                @* End Text *@
-                <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
-            </div>
-            <div class="card-footer text-muted deep-purple white-text">
-                <p class="mb-0">Created Time: 2 days ago</p>
+                <div class="card-body">
+                    <h4 class="logo">@v.QuizTitle</h4>
+                    <p class="bg-totalq"> Toal Questions:<span class="badge badge-primary ml-2" style="border-radius: 50%">@v.TotalQuestion</span></p>
+                    <p class="bg-totalq"> Toal Takens:<span class="badge badge-default ml-4" style="border-radius: 50%">12</span></p>
+                    <div>
+                        <p class="fa fa-clock fa-2x"></p>
+                        <h5>Total Time: @v.TotalTime</h5>
+                    </div>
+                    @* End Text *@
+                    <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
+                </div>
+                <div class="card-footer text-muted deep-purple white-text">
+                    <p class="mb-0">Created Time: 2 days ago</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-6 mt-4">
-        <div class="card text-center" style="width: 34rem;">
-            <div class="card-header deep-purple white-text">
-                Quiz No:42345
-            </div>
-            <div class="card-body">
-                <h4 class="logo">Personality Finder</h4>
-                @* Card Text *@
-                <h5 class="bg-totalq"> Toal Questions:<span class="badge badge-default ml-2" style="border-radius: 50%">3</span></h5>
-                <h5 class="bg-totalq"> Toal Takens:<span class="badge badge-default ml-3" style="border-radius: 50%">9</span></h5>
-                @* End Text *@
-                <div>
-                    <p class="fa fa-clock fa-2x"></p>
-                    <h5>Total Time: 8:00</h5>
-                </div>
-                <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
-            </div>
-            <div class="card-footer text-muted deep-purple white-text">
-                <p class="mb-0">Created Time: 2 days ago</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 mt-4">
-        <div class="card text-center" style="width: 34rem;">
-            <div class="card-header deep-purple white-text">
-                Quiz No:42345
-            </div>
-            <div class="card-body">
-                <h4 class="logo">Personality Finder</h4>
-                @* Card Text *@
-                <h5 class="bg-totalq"> Toal Questions:<span class="badge badge-default ml-2" style="border-radius: 50%">3</span></h5>
-                <h5 class="bg-totalq"> Toal Takens:<span class="badge badge-default ml-3" style="border-radius: 50%">9</span></h5>
-                @* End Text *@
-                <div>
-                    <p class="fa fa-clock fa-2x"></p>
-                    <h5>Total Time: 8:00</h5>
-                </div>
-                <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
-            </div>
-            <div class="card-footer text-muted deep-purple white-text">
-                <p class="mb-0">Created Time: 2 days ago</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 mt-4">
-        <div class="card text-center" style="width: 34rem;">
-            <div class="card-header deep-purple white-text">
-                Quiz No:42345
-            </div>
-            <div class="card-body">
-                <h4 class="logo">Personality Finder</h4>
-                @* Card Text *@
-                <h5 class="bg-totalq"> Toal Questions:<span class="badge badge-default ml-2" style="border-radius: 50%">3</span></h5>
-                <h5 class="bg-totalq"> Toal Takens :<span class="badge badge-default ml-4" style="border-radius: 50%">9</span></h5>
-                @* End Text *@
-                <div>
-                    <p class="fa fa-clock fa-2x"></p>
-                    <h5>Total Time: 8:00</h5>
-                </div>
-                <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
-            </div>
-            <div class="card-footer text-muted deep-purple white-text">
-                <p class="mb-0">Created Time: 2 days ago</p>
-            </div>
-        </div>
-    </div>
+    }
 </div>
