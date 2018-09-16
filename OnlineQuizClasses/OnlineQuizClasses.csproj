@@ -67,11 +67,16 @@
     <Compile Include="Migrations\201807111341120_DeleteTotaltake.Designer.cs">
       <DependentUpon>201807111341120_DeleteTotaltake.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809160507257_UserManagementTbl.cs" />
+    <Compile Include="Migrations\201809160507257_UserManagementTbl.Designer.cs">
+      <DependentUpon>201809160507257_UserManagementTbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizContext.cs" />
     <Compile Include="QuizManagement\Question.cs" />
     <Compile Include="QuizManagement\Quiz.cs" />
+    <Compile Include="QuizManagement\QuizHandler.cs" />
     <Compile Include="UserManagement\Gender.cs" />
     <Compile Include="UserManagement\Role.cs" />
     <Compile Include="UserManagement\User.cs" />
@@ -97,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807111341120_DeleteTotaltake.resx">
       <DependentUpon>201807111341120_DeleteTotaltake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809160507257_UserManagementTbl.resx">
+      <DependentUpon>201809160507257_UserManagementTbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
