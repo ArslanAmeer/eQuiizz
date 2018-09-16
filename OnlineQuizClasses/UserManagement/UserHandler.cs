@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FinalProjectClasses.UserMgment
+namespace OnlineQuizClasses.UserManagement
 {
     public class UserHandler
     {
         public User GetUser(string Loginid, string Password)
         {
-            Dbcontext db = new Dbcontext();
+            QuizContext db = new QuizContext();
             using (db)
             {
                 return (from v in db.Users where v.Loginid.Equals(Loginid) && v.Password.Equals(Password) select v).FirstOrDefault();
@@ -19,7 +16,7 @@ namespace FinalProjectClasses.UserMgment
         }
         public List<User> GetUsers()
         {
-            Dbcontext db = new Dbcontext();
+            QuizContext db = new QuizContext();
             using (db)
             {
                 return (from u in db.Users
@@ -31,7 +28,7 @@ namespace FinalProjectClasses.UserMgment
 
         public User GetUser(int id)
         {
-            Dbcontext db = new Dbcontext();
+            QuizContext db = new QuizContext();
             using (db)
             {
                 return (from u in db.Users
@@ -42,7 +39,7 @@ namespace FinalProjectClasses.UserMgment
 
         public List<Gender> GetGender()
         {
-            Dbcontext db = new Dbcontext();
+            QuizContext db = new QuizContext();
             using (db)
             {
                 return (from c in db.Genders select c).ToList();
@@ -50,7 +47,7 @@ namespace FinalProjectClasses.UserMgment
         }
         public User GetUserById(int id)
         {
-            Dbcontext db = new Dbcontext();
+            QuizContext db = new QuizContext();
             using (db)
             {
                 return (from c in db.Users
