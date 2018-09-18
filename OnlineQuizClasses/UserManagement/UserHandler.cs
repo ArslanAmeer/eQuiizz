@@ -11,7 +11,7 @@ namespace OnlineQuizClasses.UserManagement
             QuizContext db = new QuizContext();
             using (db)
             {
-                return (from v in db.Users where v.Loginid.Equals(Loginid) && v.Password.Equals(Password) select v).FirstOrDefault();
+                return (from v in db.Users where v.Email.Equals(Loginid) && v.Password.Equals(Password) select v).FirstOrDefault();
             }
         }
         public List<User> GetUsers()
