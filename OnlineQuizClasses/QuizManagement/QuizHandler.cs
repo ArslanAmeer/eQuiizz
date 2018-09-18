@@ -14,6 +14,28 @@ namespace OnlineQuizClasses.QuizManagement
             }
         }
 
+        public Quiz GetQuizId(string name)
+        {
+            using (_context)
+            {
+                return (from c in _context.Quizzes where c.QuizTitle == name select c).FirstOrDefault();
+            }
+        }
 
+        public Quiz GetQuizById(int i)
+        {
+            using (_context)
+            {
+                return (from c in _context.Quizzes where c.Id == i select c).FirstOrDefault();
+            }
+        }
+
+        public List<Question> GetAllQuestion()
+        {
+            using (_context)
+            {
+                return (from c in _context.Questions select c).ToList();
+            }
+        }
     }
 }
