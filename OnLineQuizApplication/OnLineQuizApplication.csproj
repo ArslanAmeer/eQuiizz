@@ -280,6 +280,8 @@
     <Content Include="Views\Quiz\QuizInfo.cshtml" />
     <Content Include="Views\Quiz\AddQuestions.cshtml" />
     <Content Include="Views\Quiz\Index.cshtml" />
+    <Content Include="Views\QuizHistory\Index.cshtml" />
+    <Content Include="Views\Quiz\ConductQuiz.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -290,7 +292,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\UserImages\" />
-    <Folder Include="Views\QuizHistory\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
