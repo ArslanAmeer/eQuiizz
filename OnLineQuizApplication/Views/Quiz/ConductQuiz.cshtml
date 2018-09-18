@@ -1,0 +1,19 @@
+﻿@model IEnumerable<OnlineQuizClasses.QuizManagement.Question>
+@{
+    ViewBag.Title = "ConductQuiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+<h2>ConductQuiz</h2>
+@foreach (var v in Model)
+{
+    <h6>@v.Questions</h6>
+    <div>
+        <input type="radio" id="opt1-@count" name="usman-@count" /><label for="opt1-@count">@v.Option1</label>
+        <input type="radio" id="opt2-@count" name="usman-@count" /><label for="opt2-@count">@v.Option2</label>
+        <input type="radio" id="opt3-@count" name="usman-@count" /><label for="opt3-@count">@v.Option3</label>
+        <input type="radio" id="opt4-@count" name="usman-@count" /><label for="opt4-@count">@v.Option4</label>
+    </div>
+    count++;
+
+}
