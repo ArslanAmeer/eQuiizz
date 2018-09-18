@@ -3,21 +3,20 @@
     padding: 0px;
 }
 
-.logo {
-    background-color: #512DA8;
-    color: white;
-    margin-left: 28%;
-    width: 47%;
-    height: 33px;
+.title {
     border-radius: 21px;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #512DA8;
 }
 
 .bg-totalq {
     background-color: #512DA8;
-    font-size: 18px;
-    margin-right: 42%;
-    width: 40%;
+    font-size: 14px;
     height: 32px;
     color: white;
     border-radius: 21px;
+    padding: 5px;
 }
