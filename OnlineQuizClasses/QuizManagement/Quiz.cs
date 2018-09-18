@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace OnlineQuizClasses.QuizManagement
 {
@@ -18,12 +13,5 @@ namespace OnlineQuizClasses.QuizManagement
         public int TotalQuestion { get; set; }
         [Required]
         public string TotalTime { get; set; }
-        public virtual ICollection<Question> Question { get; set; }
-
-
-        public Quiz()
-        {
-            Question = new List<Question>();
-        }
     }
 }
