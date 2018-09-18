@@ -30,11 +30,11 @@ namespace OnlineQuizClasses.QuizManagement
             }
         }
 
-        public List<Question> GetAllQuestion()
+        public List<Question> GetAllQuestion(int id)
         {
             using (_context)
             {
-                return (from c in _context.Questions select c).ToList();
+                return (from c in _context.Questions where c.Quiz.Id == id select c).ToList();
             }
         }
     }
