@@ -2,6 +2,7 @@
 using OnlineQuizClasses.QuizManagement;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -49,13 +50,21 @@ namespace OnLineQuizApplication.Controllers
                 Console.WriteLine(e.Message);
                 throw;
             }
-            return RedirectToAction("AddQuestions", "Quiz", new { questionsCount = qCount });
+            return RedirectToAction("AddQuestions", "Quiz", new { questionsCount = qCount, name = quiz.QuizTitle });
         }
+
         [HttpGet]
-        public ActionResult AddQuestions(int questionsCount)
+        public ActionResult AddQuestions(int questionsCount, string name)
         {
             ViewBag.qCount = questionsCount;
-            return View();
+            TempData["max"] = new QuizHandler().GetQuizId(name).Id;
+            if (questionsCount != 0)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index", "QuizHistory");
+
         }
         [HttpPost]
         public ActionResult AddQuestions(Question question, int questionsCount)
@@ -66,14 +75,18 @@ namespace OnLineQuizApplication.Controllers
                 return View();
             }
             QuizContext db = new QuizContext();
+            Quiz quiz = new QuizHandler().GetQuizById((int)TempData["max"]);
             using (db)
             {
+                question.Quiz = quiz;
                 db.Questions.Add(question);
+                db.Entry(quiz).State = EntityState.Unchanged;
                 db.SaveChanges();
             }
 
             ViewBag.qCount = questionsCount - 1;
-            return RedirectToAction("AddQuestions", new { questionsCount = (int)ViewBag.qCount });
+            return RedirectToAction("AddQuestions", new { questionsCount = (int)ViewBag.qCount, name = quiz.QuizTitle });
+
         }
     }
 }
