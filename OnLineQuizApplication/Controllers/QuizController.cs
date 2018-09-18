@@ -88,5 +88,19 @@ namespace OnLineQuizApplication.Controllers
             return RedirectToAction("AddQuestions", new { questionsCount = (int)ViewBag.qCount, name = quiz.QuizTitle });
 
         }
+
+        public ActionResult ConductQuiz(int id)
+        {
+            List<Question> questions = new QuizHandler().GetAllQuestion(id);
+            return View(questions);
+        }
     }
 }
+//public int QuestionCount(int id)
+//{
+//    QuizContext db = new QuizContext();
+//    using (db)
+//    {
+//        return (from c in db.Questions where c.Quiz.Id == id select c).Count();
+//    }
+//}
