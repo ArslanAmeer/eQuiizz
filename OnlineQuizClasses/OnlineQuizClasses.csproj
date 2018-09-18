@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201809160507257_UserManagementTbl.Designer.cs">
       <DependentUpon>201809160507257_UserManagementTbl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809181353161_UpdateQuizLogic.cs" />
+    <Compile Include="Migrations\201809181353161_UpdateQuizLogic.Designer.cs">
+      <DependentUpon>201809181353161_UpdateQuizLogic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizContext.cs" />
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809160507257_UserManagementTbl.resx">
       <DependentUpon>201809160507257_UserManagementTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809181353161_UpdateQuizLogic.resx">
+      <DependentUpon>201809181353161_UpdateQuizLogic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
