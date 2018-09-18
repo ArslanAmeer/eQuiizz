@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace OnlineQuizClasses.UserManagement
 {
@@ -9,7 +8,8 @@ namespace OnlineQuizClasses.UserManagement
         [Required]
         public string Fullname { get; set; }
         [Required]
-        public string Loginid { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
@@ -19,23 +19,6 @@ namespace OnlineQuizClasses.UserManagement
         public string ConfirmPassword { get; set; }
         [Required]
         public string ImageUrl { get; set; }
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-        [Display(Name = "CNIC")]
-        public long Cnic { get; set; }
-        [Required]
-        public string Shift { get; set; }
-        public DateTime DateofBirth { get; set; }
-        [Required]
-        [DataType(DataType.PhoneNumber)]
-        public long MobileNo { get; set; }
-        [Required]
-        public string FullAddress { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string State { get; set; }
 
         public virtual Gender Gender { get; set; }
         public Role Role { get; set; }
