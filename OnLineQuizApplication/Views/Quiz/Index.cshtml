@@ -10,24 +10,29 @@
 <div class="row">
     @foreach (var v in Model)
     {
-        <div class="col-lg-6 mt-4">
-            <div class="card text-center" style="width:28rem;">
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+            <div class="card text-center" style="width:22rem;">
                 <div class="card-header deep-purple white-text">
-                    @v.Id
+                    QuizNo: @v.Id
                 </div>
                 <div class="card-body">
-                    <h4 class="logo">@v.QuizTitle</h4>
-                    <p class="bg-totalq"> Toal Questions:<span class="badge badge-primary ml-2" style="border-radius: 50%">@v.TotalQuestion</span></p>
-                    <p class="bg-totalq"> Toal Takens:<span class="badge badge-default ml-4" style="border-radius: 50%">12</span></p>
-                    <div>
-                        <p class="fa fa-clock fa-2x"></p>
-                        <h5>Total Time: @v.TotalTime</h5>
+                    <p class="title text-uppercase">@v.QuizTitle</p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="bg-totalq"> Total Questions:<span class="badge badge-primary ml-2" style="border-radius: 50%">@v.TotalQuestion</span></p>
+                            <p class="bg-totalq"> Total Takes:<span class="badge badge-default ml-4" style="border-radius: 50%">12</span></p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="fa fa-clock fa-2x"></p>
+                            <h5>Total Time: @v.TotalTime</h5>
+                        </div>
                     </div>
-                    @* End Text *@
-                    <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
+                    <div>
+                        <a class="btn btn-deep-purple btn-block" style="border-radius: 21px">Start Quiz</a>
+                    </div>
                 </div>
-                <div class="card-footer text-muted deep-purple white-text">
-                    <p class="mb-0">Created Time: 2 days ago</p>
+                <div class="text-muted text-right" style="margin-right: 23px">
+                    <small class="mb-0">Created Time: 2 days ago</small>
                 </div>
             </div>
         </div>
