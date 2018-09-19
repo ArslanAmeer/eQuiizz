@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Icons\download.png" />
     <Content Include="Content\MDB-Free\css\bootstrap.css" />
     <Content Include="Content\MDB-Free\css\bootstrap.min.css" />
     <Content Include="Content\MDB-Free\css\mdb.css" />
