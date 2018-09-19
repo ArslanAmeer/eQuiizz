@@ -97,7 +97,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\HtmlPage1.html" />
     <Content Include="Content\Icons\download.png" />
+    <Content Include="Content\JavaScript.js" />
     <Content Include="Content\MDB-Free\css\bootstrap.css" />
     <Content Include="Content\MDB-Free\css\bootstrap.min.css" />
     <Content Include="Content\MDB-Free\css\mdb.css" />
@@ -147,6 +149,7 @@
     <Content Include="Content\MDB-Free\js\modules\wow.js" />
     <Content Include="Content\MDB-Free\js\popper.min.js" />
     <Content Include="Content\MDB-Free\README.txt" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
