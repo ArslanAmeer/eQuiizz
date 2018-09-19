@@ -282,6 +282,7 @@
     <Content Include="Views\Quiz\Index.cshtml" />
     <Content Include="Views\QuizHistory\Index.cshtml" />
     <Content Include="Views\Quiz\ConductQuiz.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -292,7 +293,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\UserImages\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineQuizClasses\OnlineQuizClasses.csproj">
