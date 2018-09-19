@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using OnLineQuizApplication.Models;
+using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
 {
@@ -6,6 +7,16 @@ namespace OnLineQuizApplication.Controllers
     {
         // GET: Users
         public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
         {
             return View();
         }
