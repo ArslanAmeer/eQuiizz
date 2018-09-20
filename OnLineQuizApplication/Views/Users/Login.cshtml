@@ -20,14 +20,22 @@
     <link href="~/Content/MDB-Free/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="col-lg-5 offset-3 mt-5">
+    <div class="col-lg-6 offset-3" style="margin-top: 8%">
         <!-- Default form login -->
         <form class="text-center border border-light p-5">
             <p class="h4 mb-4">Sign in</p>
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+            <div class="md-form">
+                @*<i class="fa fa-user prefix"></i>*@
+                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4">
+                <label for="defaultLoginFormEmail">Email</label>
+            </div>
             <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+            <div class="md-form">
+                @*<i class="fa fa-lock prefix"></i>*@
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4">
+                <label for="defaultLoginFormPassword">Password</label>
+            </div>
             <div class="d-flex justify-content-around">
                 <div>
                     <!-- Remember me -->
@@ -42,7 +50,7 @@
                 </div>
             </div>
             <!-- Sign in button -->
-            <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+            <button class="btn btn-info btn-block my-4" type="submit" style="border-radius: 21px">Sign in</button>
             <!-- Register -->
             @*<p>
                     Not a member?
