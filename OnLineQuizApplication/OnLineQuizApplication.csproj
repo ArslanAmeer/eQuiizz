@@ -270,6 +270,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ModelHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +290,7 @@
     <Content Include="Views\Quiz\ConductQuiz.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Users\Signup.cshtml" />
+    <Content Include="Views\Users\ErrorLog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
