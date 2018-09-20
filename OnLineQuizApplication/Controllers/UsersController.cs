@@ -1,4 +1,5 @@
 ﻿using OnLineQuizApplication.Models;
+using OnlineQuizClasses.UserManagement;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -21,5 +22,16 @@ namespace OnLineQuizApplication.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Signup(User user)
+        {
+            return View();
+        }
     }
 }
