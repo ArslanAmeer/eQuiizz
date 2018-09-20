@@ -150,6 +150,7 @@
     <Content Include="Content\MDB-Free\js\popper.min.js" />
     <Content Include="Content\MDB-Free\README.txt" />
     <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Content\UserImages\noimage.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -297,7 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineQuizClasses\OnlineQuizClasses.csproj">
