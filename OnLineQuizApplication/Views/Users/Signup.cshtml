@@ -2,16 +2,27 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Signup</title>
 </head>
 <body>
-    <div> 
+    <div class="col-lg-6 mt-5">
+        <form class="text-center border border-light p-5">
+            <p class="h4 mb-4">Register Your Self</p>
+            <div class="md-form">
+                @*<i class="fa fa-user prefix"></i>*@
+                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4">
+                <label for="defaultLoginFormEmail">Email</label>
+            </div>
+            <div class="md-form">
+                @*<i class="fa fa-lock prefix"></i>*@
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4">
+                <label for="defaultLoginFormPassword">Password</label>
+            </div>
+        </form>
     </div>
 </body>
 </html>
