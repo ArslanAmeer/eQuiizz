@@ -1,5 +1,7 @@
 ﻿using OnLineQuizApplication.Models;
 using OnlineQuizClasses.UserManagement;
+using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -29,8 +31,29 @@ namespace OnLineQuizApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult Signup(User user)
+        public ActionResult Signup(FormCollection fdata, User u)
         {
+
+            long numb = DateTime.Now.Ticks;
+            int count = 0;
+            foreach (string fname in Request.Files)
+            {
+                HttpPostedFileBase file = Request.Files[fname];
+                if (!string.IsNullOrEmpty(file?.FileName))
+                {
+                    string url = "/Content/UserImages/" + numb + "_" + ++count + file.FileName.Substring(file.FileName.LastIndexOf(".", StringComparison.Ordinal));
+                    string path = Request.MapPath(url);
+                    file.SaveAs(path);
+                    u.ImageUrl = url;
+                }
+                else
+                {
+                    string url = "/Content/UserImages/noimage.jpg";
+                    u.ImageUrl = url;
+                }
+
+            }
+
             return View();
         }
     }
