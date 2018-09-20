@@ -11,40 +11,53 @@
 <body>
     <div class="col-lg-6 offset-3 mt-5">
         <form class="text-center border border-light p-5">
-            @Html.AntiForgeryToken()
-            <p class="h4 mb-4">Register Your Self</p>
-            <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
-                @Html.TextBoxFor(m => m.ImageUrl, null, new { @class = "form-control mb-4", type = "file", id = "fullname" })
-                @Html.ValidationMessageFor(m => m.ImageUrl, null, new { @class = "text-danger" })
-            </div>
-            <div class="md-form">
-                @*<i class="fa fa-user prefix"></i>*@
-                @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control mb-4", id = "email" })
-                @Html.LabelFor(m => m.Email, new { @for = "email" })
-                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
-            </div>
-            <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
-                @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control mb-4", id = "password" })
-                @Html.LabelFor(m => m.Password, new { @for = "password" })
-                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
-            </div>
-            <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
-                @Html.TextBoxFor(m => m.ConfirmPassword, null, new { @class = "form-control mb-4", id = "conpassword" })
-                @Html.LabelFor(m => m.ConfirmPassword, new { @for = "conpassword" })
-                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
-            </div>
-            <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
-                @Html.TextBoxFor(m => m.Fullname, null, new { @class = "form-control mb-4", id = "fullname" })
-                @Html.LabelFor(m => m.Fullname, new { @for = "fullname" })
-                @Html.ValidationMessageFor(m => m.Fullname, null, new { @class = "text-danger" })
-            </div>
-            <div class="md-form">
-                <button type="submit" class="btn btn-deep-purple btn-block" style="border-radius: 21px">SignUp</button>
-            </div>
+            @using (Html.BeginForm("Signup", "Users", FormMethod.Post, new { id = "signupform", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <p class="h4 mb-4">Register Your Self</p>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="md-form">
+                    @*<i class="fa fa-lock prefix"></i>*@
+                    @Html.TextBoxFor(m => m.ImageUrl, null, new { @class = "form-control mb-4", type = "file", id = "fullname" })
+                    @Html.ValidationMessageFor(m => m.ImageUrl, null, new { @class = "text-danger" })
+                </div>
+                <div class="md-form">
+                    @*<i class="fa fa-user prefix"></i>*@
+                    @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control mb-4", id = "email" })
+                    @Html.LabelFor(m => m.Email, new { @for = "email" })
+                    @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+                </div>
+                <div class="md-form">
+                    @*<i class="fa fa-lock prefix"></i>*@
+                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control mb-4", id = "password" })
+                    @Html.LabelFor(m => m.Password, new { @for = "password" })
+                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+                </div>
+                <div class="md-form">
+                    @*<i class="fa fa-lock prefix"></i>*@
+                    @Html.TextBoxFor(m => m.ConfirmPassword, null, new { @class = "form-control mb-4", id = "conpassword" })
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @for = "conpassword" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
+                </div>
+                <div class="md-form">
+                    @*<i class="fa fa-lock prefix"></i>*@
+                    @Html.TextBoxFor(m => m.Fullname, null, new { @class = "form-control mb-4", id = "fullname" })
+                    @Html.LabelFor(m => m.Fullname, new { @for = "fullname" })
+                    @Html.ValidationMessageFor(m => m.Fullname, null, new { @class = "text-danger" })
+                </div>
+                <div class="md-form">
+                    @Html.LabelFor(m => m.Gender.Name)&nbsp;&nbsp;&nbsp;&nbsp;
+                    @foreach (var b in (IEnumerable<SelectListItem>)ViewBag.GenderList)
+                    {
+                        <label>@Html.RadioButton("gender.Name", b.Value) @b.Text</label>
+                    }
+                </div>
+
+                <div class="md-form">
+                    <button type="submit" class="btn btn-deep-purple btn-block" style="border-radius: 21px">SignUp</button>
+                </div>
+            }
         </form>
     </div>
 </body>
