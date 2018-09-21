@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using OnlineQuizClasses.UserManagement
+@{
+    User currentUser = (User)Session[WebUtils.Current_User];
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,7 +27,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Index","Quiz")"><i class="fa fa-home fa-lg"></i>Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -37,7 +41,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
-                        <span class="fa fa-user-circle fa-lg"></span>&nbsp;  Usman Haider Khan
+                        @if (currentUser != null)
+                        {
+                            <span><img src="@Url.Content(currentUser.ImageUrl)" width="30" height="30" style="border-radius: 50%; " /></span> @currentUser.Fullname
+                        }
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#"><span class="fa fa-cog"></span>&nbsp; Account</a>
