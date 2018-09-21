@@ -1,6 +1,7 @@
 ﻿@model OnlineQuizClasses.UserManagement.User
 @{
     // Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
 </head>
 <body>
     <div class="col-lg-6 offset-3 mt-5">
-        @using (Html.BeginForm("Signup", "Users", FormMethod.Post, new { @class = "border border-light p-5", id = "signupform", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Signup", "Users", FormMethod.Post, new { @class = "border border-light p-3", id = "signupform", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <p class="h4 mb-4 text-center">Register Your Self</p>
@@ -74,6 +75,9 @@
 
             <div class="md-form">
                 <button type="submit" class="btn btn-deep-purple btn-block" style="border-radius: 21px">SignUp</button>
+            </div>
+            <div class="md-form text-center text-default">
+                <a href="@Url.Action("Login","Users")"><b>Back to Login</b></a>
             </div>
         }
     </div>
