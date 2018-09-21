@@ -10,42 +10,52 @@
 </head>
 <body>
     <div class="col-lg-6 offset-3 mt-5">
-        @using (Html.BeginForm("Signup", "Users", FormMethod.Post, new { @class = "text-center border border-light p-5", id = "signupform", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Signup", "Users", FormMethod.Post, new { @class = "border border-light p-5", id = "signupform", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <p class="h4 mb-4">Register Your Self</p>
+            <p class="h4 mb-4 text-center">Register Your Self</p>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
+                <i class="fa fa-image prefix"></i>
                 @Html.TextBoxFor(m => m.ImageUrl, null, new { @class = "form-control mb-4", type = "file" })
-                @Html.ValidationMessageFor(m => m.ImageUrl, null, new { @class = "text-danger" })
+                <div class="text-center">
+                    @Html.ValidationMessageFor(m => m.ImageUrl, null, new { @class = "text-danger" })
+                </div>
             </div>
             <div class="md-form">
-                @*<i class="fa fa-user prefix"></i>*@
+                <i class="fa fa-envelope prefix"></i>
                 @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control mb-4", id = "email" })
-                @Html.LabelFor(m => m.Email, new { @for = "email" })
-                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+                @Html.LabelFor(m => m.Email, new { @for = "email", @class = "form-check-label" })
+                <div class="text-center">
+                    @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+                </div>
             </div>
             <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
+                <i class="fa fa-lock prefix"></i>
                 @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control mb-4", type = "password", id = "password" })
-                @Html.LabelFor(m => m.Password, new { @for = "password" })
-                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+                @Html.LabelFor(m => m.Password, new { @for = "password", @class = "form-check-label" })
+                <div class="text-center">
+                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+                </div>
             </div>
             <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
+                <i class="fa fa-lock prefix"></i>
                 @Html.TextBoxFor(m => m.ConfirmPassword, null, new { @class = "form-control mb-4", type = "password", id = "conpassword" })
-                @Html.LabelFor(m => m.ConfirmPassword, new { @for = "conpassword" })
-                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
+                @Html.LabelFor(m => m.ConfirmPassword, new { @for = "conpassword", @class = "form-check-label" })
+                <div class="text-center">
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "text-danger" })
+                </div>
             </div>
             <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
+                <i class="fa fa-user prefix"></i>
                 @Html.TextBoxFor(m => m.Fullname, null, new { @class = "form-control mb-4", id = "fullname" })
-                @Html.LabelFor(m => m.Fullname, new { @for = "fullname" })
-                @Html.ValidationMessageFor(m => m.Fullname, null, new { @class = "text-danger" })
+                @Html.LabelFor(m => m.Fullname, new { @for = "fullname", @class = "form-check-label" })
+                <div class="text-center">
+                    @Html.ValidationMessageFor(m => m.Fullname, null, new { @class = "text-danger" })
+                </div>
             </div>
-            <div class="form-group">
+            <div class="form-group text-center">
                 @Html.LabelFor(m => m.Gender.Name)&nbsp;&nbsp;&nbsp;&nbsp;
                 @foreach (var b in (IEnumerable<SelectListItem>)ViewBag.GenderList)
                 {
