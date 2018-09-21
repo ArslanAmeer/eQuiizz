@@ -16,11 +16,56 @@ namespace OnLineQuizApplication.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            HttpCookie myCookie = Request.Cookies["logsec"];
+            if (myCookie != null)
+            {
+                User user = new UserHandler().GetUser(myCookie.Values["logid"], myCookie.Values["psd"]);
+                if (user != null)
+                {
+                    myCookie.Expires = DateTime.Now.AddDays(7);
+                    Session.Add(WebUtils.Current_User, user);
+                }
+            }
+            ViewBag.Controller = Request.QueryString["ctl"];
+            ViewBag.Action = Request.QueryString["act"];
             return View();
         }
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            User u = new UserHandler().GetUser(model.Email, model.Password);
+            if (u != null)
+            {
+                if (model.Rememberme)
+                {
+                    HttpCookie cookie = new HttpCookie("logsec")
+                    { Expires = DateTime.Now.AddDays(7) };
+                    cookie.Values.Add("logid", u.Email);
+                    cookie.Values.Add("psd", u.Password);
+                    Response.SetCookie(cookie);
+                }
+                Session.Add(WebUtils.Current_User, u);
+                string ctl = Request.QueryString["c"];
+                string act = Request.QueryString["a"];
+                if (!string.IsNullOrEmpty(ctl) && string.IsNullOrEmpty(act))
+                {
+                    return RedirectToAction(ctl, act);
+                }
+
+                if (u.IsInRole(WebUtils.Admin))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
+                return RedirectToAction("Index", "Quiz");
+            }
+            else
+            {
+                ViewBag.Error = "Your LoginId and Password are Wrong..Please try Again!";
+            }
             return View();
         }
 
@@ -68,13 +113,25 @@ namespace OnLineQuizApplication.Controllers
                 }
             }
 
-            return RedirectToAction("ErrorLog", "Users");
+            return View();
 
         }
 
         public ActionResult ErrorLog()
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            HttpCookie hc = Request.Cookies["logsec"];
+            if (hc != null)
+            {
+                hc.Expires = DateTime.Now;
+                Response.SetCookie(hc);
+            }
+            return RedirectToAction("Login");
         }
     }
 }
