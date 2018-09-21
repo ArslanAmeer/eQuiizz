@@ -133,5 +133,11 @@ namespace OnLineQuizApplication.Controllers
             }
             return RedirectToAction("Login");
         }
+
+        public ActionResult UserAccount(int id)
+        {
+            User user = new UserHandler().GetUserById(id);
+            return View(user);
+        }
     }
 }
