@@ -38,25 +38,28 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        @if (currentUser != null)
-                        {
-                            <span><img src="@Url.Content(currentUser.ImageUrl)" width="30" height="30" style="border-radius: 50%; " /></span> @currentUser.Fullname
-                        }
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#"><span class="fa fa-cog"></span>&nbsp; Account</a>
-                        <a class="dropdown-item" href="#"><span class="fa fa-folder"></span>&nbsp; My Quizes</a>
-                        <a class="dropdown-item" href="@Url.Action("Logout","Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a>
-                    </div>
+                @if (currentUser != null)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+
+                            <span><img src="@Url.Content(currentUser.ImageUrl)" width="30" height="30" style="border-radius: 50%;" /></span> @currentUser.Fullname
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#"><span class="fa fa-cog"></span>&nbsp; Account</a>
+                            <a class="dropdown-item" href="#"><span class="fa fa-folder"></span>&nbsp; My Quizes</a>
+                            <a class="dropdown-item" href="@Url.Action("Logout", "Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a>
+                        </div>
+                    </li>
+
+                }
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Login", "Users")"><span class="fa fa-user fa-lg"></span>&nbsp; Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Login","Users")"><span class="fa fa-user fa-lg"></span>&nbsp; Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Signup","Users")"><span class="fa fa-user-plus fa-lg"></span>&nbsp; Signup</a>
+                    <a class="nav-link" href="@Url.Action("Signup", "Users")"><span class="fa fa-user-plus fa-lg"></span>&nbsp; Signup</a>
                 </li>
             </ul>
         </div>
