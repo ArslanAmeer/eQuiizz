@@ -1,8 +1,7 @@
-﻿
+﻿@model OnLineQuizApplication.Models.LoginViewModel
 @{
     //Layout = "~/Views/Shared/_Layout.cshtml";
     Layout = null;
-
 }
 <!DOCTYPE html>
 <html>
@@ -22,56 +21,72 @@
 <body>
     <div class="col-lg-6 offset-3" style="margin-top: 8%">
         <!-- Default form login -->
-        <form class="text-center border border-light p-5">
-            <p class="h4 mb-4">Sign in</p>
-            <!-- Email -->
-            <div class="md-form">
-                @*<i class="fa fa-user prefix"></i>*@
-                <input type="email" id="defaultLoginFormEmail" class="form-control mb-4">
-                <label for="defaultLoginFormEmail">Email</label>
-            </div>
-            <!-- Password -->
-            <div class="md-form">
-                @*<i class="fa fa-lock prefix"></i>*@
-                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4">
-                <label for="defaultLoginFormPassword">Password</label>
-            </div>
-            <div class="d-flex justify-content-around">
-                <div>
-                    <!-- Remember me -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                        <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+        <div id="error">
+            @if (ViewBag.Error != null)
+            {
+                <p class="text-danger"> @ViewBag.Error</p>
+
+            }
+        </div>
+        <div class="border border-light p-5">
+            @using (Html.BeginForm("Login", "Users", new { c = ViewBag.Controller, a = ViewBag.Action }, FormMethod.Post, new { id = "loginform" }))
+            {
+                <p class="h4 mb-4 text-center">Sign in</p>
+                <!-- Email -->
+                <div class="md-form">
+                    <i class="fa fa-user prefix"></i>
+                    @Html.TextBoxFor(m => m.Email, null, new { @class = "form-control mb-4", id = "email" })
+                    @Html.LabelFor(m => m.Email, new { @for = "email", @class = "form-check-label" })
+                    <div class="text-center">
+                        @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger text-center" })
                     </div>
                 </div>
-                <div>
-                    <!-- Forgot password -->
-                    <a href="">Forgot password?</a>
+                <!-- Password -->
+                <div class="md-form">
+                    <i class="fa fa-lock prefix"></i>
+                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control mb-4", type = "password", id = "password" })
+                    @Html.LabelFor(m => m.Password, new { @for = "password", @class = "form-check-label" })
+                    <div class="text-center">
+                        @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-            <!-- Sign in button -->
-            <button class="btn btn-info btn-block my-4" type="submit" style="border-radius: 21px">Sign in</button>
-            Create New Account ....<a href="@Url.Action("Signup","Users")">SignUp</a>
-            <!-- Register -->
-            @*<p>
-                    Not a member?
-                    <a href="">Register</a>
-                </p>
-                 Social login
-                <p>or sign in with:</p>
-                <a type="button" class="light-blue-text mx-2">
-                    <i class="fa fa-facebook"></i>
-                </a>
-                <a type="button" class="light-blue-text mx-2">
-                    <i class="fa fa-twitter"></i>
-                </a>
-                <a type="button" class="light-blue-text mx-2">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a type="button" class="light-blue-text mx-2">
-                    <i class="fa fa-github"></i>
-                </a>*@
-        </form>
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="remeber">
+                            @Html.LabelFor(m => m.Rememberme, new { @for = "remeber", @class = "custom-control-label" })
+                        </div>
+                    </div>
+                    <div>
+                        <a href="">Forgot password?</a>
+                    </div>
+                </div>
+                <button class="btn btn-outline-deep-purple z-depth-0 waves-effect btn-block my-4" type="submit" style="border-radius: 21px">Sign in</button>
+                <div class="text-center">
+                    Create New Account ...<a href="@Url.Action("Signup", "Users")">SignUp</a>
+                </div>
+
+            }
+        </div>
+        <!-- Register -->
+        @*<p>
+                Not a member?
+                <a href="">Register</a>
+            </p>
+             Social login
+            <p>or sign in with:</p>
+            <a type="button" class="light-blue-text mx-2">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <i class="fa fa-github"></i>
+            </a>*@
         <!-- Default form login -->
     </div>
     <!-- JQuery -->
