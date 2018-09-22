@@ -77,8 +77,6 @@ namespace OnlineQuizClasses.UserManagement
             using (db)
             {
                 db.Entry(user).State = EntityState.Modified;
-                db.Entry(db.Roles).State = EntityState.Unchanged;
-                db.Entry(db.Genders).State = EntityState.Unchanged;
                 db.SaveChanges();
             }
         }
