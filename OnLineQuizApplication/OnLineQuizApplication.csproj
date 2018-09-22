@@ -296,6 +296,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Users\UserAccount.cshtml" />
+    <Content Include="Views\Users\EditUserAccont.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
