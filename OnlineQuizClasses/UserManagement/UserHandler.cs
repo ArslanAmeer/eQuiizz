@@ -76,7 +76,7 @@ namespace OnlineQuizClasses.UserManagement
             QuizContext db = new QuizContext();
             using (db)
             {
-                db.Entry(db.Users).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.Entry(db.Roles).State = EntityState.Unchanged;
                 db.Entry(db.Genders).State = EntityState.Unchanged;
                 db.SaveChanges();
