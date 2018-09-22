@@ -152,6 +152,7 @@ namespace OnLineQuizApplication.Controllers
             if (ModelState.IsValid)
             {
                 new UserHandler().UpdateUser(user);
+                Session.Add(WebUtils.Current_User, new UserHandler().GetUser(user.Id));
                 return RedirectToAction("UserAccount", "Users");
             }
 
