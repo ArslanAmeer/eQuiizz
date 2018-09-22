@@ -1,59 +1,33 @@
 ﻿@model OnlineQuizClasses.UserManagement.User
-
 @{
     ViewBag.Title = "UserAccount";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UserAccount</h2>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </dt>
+<section class="card mb-4">
+    <img alt="" src="https://lh6.googleusercontent.com/-ofRxxTj8YYE/AAAAAAAAAAI/AAAAAAAACyE/neErOUFy2Ww/photo.jpg?sz=200" class="avatar avatar-wordpress-social-login avatar-160 photo" height="160" width="160">
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title">
+            <strong>usman khan</strong>
+        </h4>
+        <h5>
+            <a rel="nofollow" href="?utm_source=mdbootstrap.com" target="_blank"></a>
+        </h5>
+        <p class="grey-text"></p>
+        <!-- Social -->
+        <!--Text-->
+        <p class="card-text mt-3"></p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fullname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ConfirmPassword)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ConfirmPassword)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        <a class="btn btn-primary btn-md waves-effect waves-light" href="/profile/settings" role="button" data-toggle="">
+            Edit profile
+            <i class="fa fa-pencil ml-2"></i>
+        </a>
+        <a class="btn btn-mdb-color btn-md waves-effect waves-light" href="https://mdbootstrap.com/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fmdbootstrap.com%2Fprofile%2F&amp;_wpnonce=48af70d1ca" role="button">
+            Log out
+            <i class="fa fa-sign-out ml-2"></i>
+        </a>
+    </div>
+</section>
