@@ -70,5 +70,17 @@ namespace OnlineQuizClasses.UserManagement
             }
 
         }
+
+        public void UpdateUser(User user)
+        {
+            QuizContext db = new QuizContext();
+            using (db)
+            {
+                db.Entry(db.Users).State = EntityState.Modified;
+                db.Entry(db.Roles).State = EntityState.Unchanged;
+                db.Entry(db.Genders).State = EntityState.Unchanged;
+                db.SaveChanges();
+            }
+        }
     }
 }
