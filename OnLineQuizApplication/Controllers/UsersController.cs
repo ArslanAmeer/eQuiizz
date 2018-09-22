@@ -139,5 +139,25 @@ namespace OnLineQuizApplication.Controllers
             User user = new UserHandler().GetUserById(id);
             return View(user);
         }
+        [HttpGet]
+        public ActionResult EditUserAccont(int id)
+        {
+            User user = new UserHandler().GetUserById(id);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult EditUserAccont(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                new UserHandler().UpdateUser(user);
+                return RedirectToAction("UserAccount", "Users");
+            }
+
+            return View();
+
+        }
+
     }
 }
