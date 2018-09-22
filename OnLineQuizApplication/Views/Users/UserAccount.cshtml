@@ -3,31 +3,42 @@
     ViewBag.Title = "UserAccount";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-<section class="card mb-4">
-    <img alt="" src="https://lh6.googleusercontent.com/-ofRxxTj8YYE/AAAAAAAAAAI/AAAAAAAACyE/neErOUFy2Ww/photo.jpg?sz=200" class="avatar avatar-wordpress-social-login avatar-160 photo" height="160" width="160">
-    <!--Card content-->
+<section class=" col-lg-6 offset-3 text-center card mb-4 " style="margin-top: 8%">
     <div class="card-body">
-        <!--Title-->
-        <h4 class="card-title">
-            <strong>usman khan</strong>
-        </h4>
+        <img alt="" src="@Url.Content(Model.ImageUrl)" style="border-radius: 50%;" class="img-thumbnail" height="200" width="200">
+    </div>
+    <hr />
+    <div class="card-body">
+        <h5>
+            <span class="fa fa-user"></span>&nbsp;&nbsp;<strong>@Model.Fullname</strong>
+        </h5>
+        <h5>
+            <span class="fa fa-envelope"></span>&nbsp;&nbsp;<strong>@Model.Email</strong>
+        </h5>
+        <h5>
+            <span class="fa fa-lock text-danger"></span>&nbsp;&nbsp;<strong>@Model.Password</strong>
+        </h5>
+        <h5>
+            <span class="fa fa-lock text-dark"></span>&nbsp;&nbsp;<strong>@Model.ConfirmPassword</strong>
+        </h5>
+        <h5>
+            <span class="fa fa-genderless"></span>&nbsp;&nbsp;<strong>@Model.Gender.Name</strong>
+        </h5>
+        <h5>
+            <span class="fa fa-walking"></span>&nbsp;&nbsp;<strong>@Model.Role.Name</strong>
+        </h5>
         <h5>
             <a rel="nofollow" href="?utm_source=mdbootstrap.com" target="_blank"></a>
         </h5>
         <p class="grey-text"></p>
-        <!-- Social -->
-        <!--Text-->
         <p class="card-text mt-3"></p>
-
         <a class="btn btn-primary btn-md waves-effect waves-light" href="/profile/settings" role="button" data-toggle="">
             Edit profile
-            <i class="fa fa-pencil ml-2"></i>
+            <i class="fa fa-edit ml-2"></i>
         </a>
         <a class="btn btn-mdb-color btn-md waves-effect waves-light" href="https://mdbootstrap.com/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fmdbootstrap.com%2Fprofile%2F&amp;_wpnonce=48af70d1ca" role="button">
             Log out
-            <i class="fa fa-sign-out ml-2"></i>
+            <i class="fa fa-sign-out-alt ml-2"></i>
         </a>
     </div>
 </section>
