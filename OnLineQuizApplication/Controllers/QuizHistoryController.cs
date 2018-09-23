@@ -17,5 +17,10 @@ namespace OnLineQuizApplication.Controllers
             Quiz quiz = new QuizHandler().GetQuizByUser(user);
             return View(quiz);
         }
+
+        public ActionResult Layout()
+        {
+            return View();
+        }
     }
 }
