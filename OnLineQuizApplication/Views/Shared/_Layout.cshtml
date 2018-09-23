@@ -47,7 +47,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="@Url.Action("UserAccount","Users",new{id=currentUser.Id})"><span class="fa fa-cog"></span>&nbsp; Account</a>
-                            <a class="dropdown-item" href="#"><span class="fa fa-folder"></span>&nbsp; My Quizes</a>
+                            <a class="dropdown-item" href="@Url.Action("Index","QuizHistory",new{user=currentUser.Id})"><span class="fa fa-folder"></span>&nbsp; My Quizes</a>
                             <a class="dropdown-item" href="@Url.Action("Logout", "Users")"><span class="fa fa-sign-out-alt"></span>&nbsp; Logout</a>
                         </div>
                     </li>
