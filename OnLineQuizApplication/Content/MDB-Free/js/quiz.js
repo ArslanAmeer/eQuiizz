@@ -1,1 +1,1 @@
-﻿
+﻿console.log("Quiz JS File Connected Successfully");
