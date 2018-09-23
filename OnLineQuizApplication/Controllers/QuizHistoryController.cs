@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using OnlineQuizClasses.QuizManagement;
+using OnlineQuizClasses.UserManagement;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -12,6 +10,12 @@ namespace OnLineQuizApplication.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult QuizCreatedBy(User user)
+        {
+            Quiz quiz = new QuizHandler().GetQuizByUser(user);
+            return View(quiz);
         }
     }
 }
