@@ -104,6 +104,7 @@
     <Content Include="Content\MDB-Free\css\bootstrap.min.css" />
     <Content Include="Content\MDB-Free\css\mdb.css" />
     <Content Include="Content\MDB-Free\css\mdb.min.css" />
+    <Content Include="Content\MDB-Free\css\quiz.css" />
     <Content Include="Content\MDB-Free\css\style.css" />
     <Content Include="Content\MDB-Free\css\style.min.css" />
     <Content Include="Content\MDB-Free\fontawesome-free-5.0.13\LICENSE.txt" />
