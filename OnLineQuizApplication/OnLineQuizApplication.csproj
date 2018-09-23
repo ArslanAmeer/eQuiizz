@@ -148,6 +148,7 @@
     <Content Include="Content\MDB-Free\js\modules\waves.js" />
     <Content Include="Content\MDB-Free\js\modules\wow.js" />
     <Content Include="Content\MDB-Free\js\popper.min.js" />
+    <Content Include="Content\MDB-Free\js\quiz.js" />
     <Content Include="Content\MDB-Free\README.txt" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="Content\UserImages\noimage.jpg" />
