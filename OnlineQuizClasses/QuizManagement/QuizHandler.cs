@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using OnlineQuizClasses.UserManagement;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OnlineQuizClasses.QuizManagement
@@ -35,6 +36,14 @@ namespace OnlineQuizClasses.QuizManagement
             using (_context)
             {
                 return (from c in _context.Questions where c.Quiz.Id == id select c).ToList();
+            }
+        }
+
+        public Quiz GetQuizByUser(User user)
+        {
+            using (_context)
+            {
+                return (from c in _context.Quizzes where c.Id == user.Id select c).FirstOrDefault();
             }
         }
     }
