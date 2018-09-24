@@ -1,2 +1,41 @@
 ﻿body {
+    font-size: 15px;
+    line-height: 1.6em;
+    background: #f4f4f4;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+header {
+    background: #1f88f4;
+    padding: 5px 10px;
+    color: #ffffff;
+    overflow: auto;
+}
+
+footer {
+    background: #1f88f4;
+    padding: 5px 10px;
+    color: #ffffff;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .container {
+        width: 100%;
+    }
 }
