@@ -4,11 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     int count = 0;
 }
+<link href="~/Content/MDB-Free/css/quiz.css" rel="stylesheet" />
 <h2>ConductQuiz</h2>
 @foreach (var v in Model)
 {
     <h6>@v.Questions</h6>
-    <div>
+    <div class="question-form">
         <input type="radio" id="opt1-@count" name="usman-@count" /><label for="opt1-@count">@v.Option1</label>
         <input type="radio" id="opt2-@count" name="usman-@count" /><label for="opt2-@count">@v.Option2</label>
         <input type="radio" id="opt3-@count" name="usman-@count" /><label for="opt3-@count">@v.Option3</label>
@@ -17,3 +18,5 @@
     count++;
 
 }
+<script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
+<script src="~/Content/MDB-Free/js/quiz.js"></script>
