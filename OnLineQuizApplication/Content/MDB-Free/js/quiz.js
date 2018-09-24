@@ -24,7 +24,7 @@ $(document).ready(function () {
         current = $(this).parent('form:first').data('question');
         next = $(this).parent('form:first').data('question') + 1;
         $('.question-form').hide();
-        $('#count' + next + '').fadeIn(300);
+        $('#q-1' + next + '').fadeIn(300);
 
         process('' + current + '');
         return false;
