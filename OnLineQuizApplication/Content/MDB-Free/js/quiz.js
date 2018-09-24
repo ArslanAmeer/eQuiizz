@@ -3,9 +3,9 @@
 
 console.log("Quiz JS File Connected Successfully");
 var score = 0;
-var point = 1;
+var point = 2;
 var total = 5;
-var highest = score * point;
+var highest = total * point;
 function init() {
     sessionStorage.setItem('a1', 'b');
     sessionStorage.setItem('a2', 'd');
@@ -25,46 +25,31 @@ $(document).ready(function () {
         next = $(this).parent('form:first').data('question') + 1;
         $('.question-form').hide();
         $('#q' + next + '').fadeIn(300);
+
         process('' + current + '');
         return false;
 
     });
 
-
-
-
 });
-function process(q) {
-    if (q === 'q1') {
-        var submitted = $('input[name=q1]:checked').val();
-        if (submitted === sessionStorage.a1) {
-            score++;
-        }
+function process(n) {
+
+    var submitted = $('input[name=q' + n + ']:checked').val();
+
+    if (submitted === sessionStorage.getItem('a' + n + '')) {
+        score = score + point;
     }
-    if (q === 'q2') {
-        var submitted = $('input[name=q2]:checked').val();
-        if (submitted === sessionStorage.a2) {
-            score++;
+
+    if (n == total) {
+
+        $('#result').html('<h3>Your Final Score is  ' + score + '  Out Of ' + highest + ' ');
+        debugger;
+        if (score == highest) {
+            $('#result').append("<h3>You are HTML5 Master</h3>");
         }
-    }
-    if (q === 'q3') {
-        var submitted = $('input[name=q3]:checked').val();
-        if (submitted === sessionStorage.a3) {
-            score++;
+        else if (score == highest - point || score == highest - point - point) {
+            $('#result').append("<h3>Good Job.!</h3>");
         }
-    }
-    if (q === 'q4') {
-        var submitted = $('input[name=q4]:checked').val();
-        if (submitted === sessionStorage.a4) {
-            score++;
-        }
-    }
-    if (q === 'q5') {
-        var submitted = $('input[name=q5]:checked').val();
-        if (submitted === sessionStorage.a5) {
-            score++;
-        }
-        $('#result').html("<h3>Your Final Score is" + score + "Out Of 5<h3><a href='@Url.Action('Layout','QuizHistory')'>Take Again this</a>");
     }
     return false;
 
@@ -77,7 +62,30 @@ window.addEventListener('load', init, false);
 
 
 
-
+//if (q === 'q1') {
+//    var submitted = $('input[name=q1]:checked').val();
+//    if (submitted === sessionStorage.a1) {
+//        score++;
+//    }
+//}
+//if (q === 'q2') {
+//    var submitted = $('input[name=q2]:checked').val();
+//    if (submitted === sessionStorage.a2) {
+//        score++;
+//    }
+//}
+//if (q === 'q3') {
+//    var submitted = $('input[name=q3]:checked').val();
+//    if (submitted === sessionStorage.a3) {
+//        score++;
+//    }
+//}
+//if (q === 'q4') {
+//    var submitted = $('input[name=q4]:checked').val();
+//    if (submitted === sessionStorage.a4) {
+//        score++;
+//    }
+//}
 
 
 
