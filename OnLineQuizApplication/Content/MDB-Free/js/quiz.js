@@ -18,13 +18,13 @@ function init() {
 $(document).ready(function () {
     $('.question-form').hide();
 
-    $('#q1').show();
+    $('#q-0').show();
 
     $('.question-form #submit').click(function () {
         current = $(this).parent('form:first').data('question');
         next = $(this).parent('form:first').data('question') + 1;
         $('.question-form').hide();
-        $('#q' + next + '').fadeIn(300);
+        $('#count' + next + '').fadeIn(300);
 
         process('' + current + '');
         return false;
