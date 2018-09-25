@@ -25,12 +25,13 @@ $(document).ready(function () {
         current = $(this).parent('form:first').data('question');
         next = $(this).parent('form:first').data('question') + 1;
         $('.question-form').hide();
-        $(quizId + next + '').fadeIn(300);
+        i++;
+        quizId = '#q-' + i;
+        $(quizId).fadeIn(300);
 
-        process('' + current + '');
         return false;
     });
-    i++;
+
 });
 function process(n) {
 
