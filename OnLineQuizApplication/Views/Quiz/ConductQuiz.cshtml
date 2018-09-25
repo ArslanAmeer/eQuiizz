@@ -9,7 +9,7 @@
 @foreach (var v in Model)
 {
 
-    <div class="question-form" id="q-@count" data-question="@count">
+    <form class="question-form" id="q-@count" data-question="@count">
         <h3>@v.Id.@v.Questions</h3>
         <ul>
             <li><input type="radio" id="opt1-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt1-@count">@v.Option1</label></li>
@@ -18,7 +18,7 @@
             <li><input type="radio" id="opt4-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt4-@count">@v.Option4</label></li>
         </ul>
         <button id="submit" class="btn btn-default">Submit</button>
-    </div>
+    </form>
     count++;
 
 }
