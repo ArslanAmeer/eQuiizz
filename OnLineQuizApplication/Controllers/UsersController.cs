@@ -1,6 +1,7 @@
 ﻿using OnLineQuizApplication.Models;
 using OnlineQuizClasses.UserManagement;
 using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
@@ -158,6 +159,12 @@ namespace OnLineQuizApplication.Controllers
 
             return View();
 
+        }
+
+        public ActionResult UserDetails()
+        {
+            List<User> users = new UserHandler().GetUsers();
+            return View(users);
         }
 
     }
