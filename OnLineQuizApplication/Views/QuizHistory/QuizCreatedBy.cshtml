@@ -1,8 +1,28 @@
-﻿
+﻿@model IEnumerable<OnlineQuizClasses.UserManagement.User>
 @{
     ViewBag.Title = "QuizCreatedBy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>QuizCreatedBy</h2>
-
+<div class="col-lg-10">
+    @foreach (var v in Model)
+    {
+        <div class="jumbotron">
+            <div>
+                @v.Fullname
+            </div>
+            <div>
+                @v.Role.Name
+            </div>
+            <div>
+                <img src="@Url.Content(v.ImageUrl)" style="width: 40px; height: 40px;border-radius: 50%" />
+            </div>
+            @foreach (var c in v.Quiz)
+            {
+                <strong>@c.QuizTitle</strong>
+                <strong>@c.TotalQuestion</strong>
+                <strong>@c.TotalTime</strong>
+            }
+        </div>
+    }
+</div>
