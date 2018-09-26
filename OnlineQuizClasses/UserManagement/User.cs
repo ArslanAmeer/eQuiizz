@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OnlineQuizClasses.QuizManagement;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineQuizClasses.UserManagement
 {
@@ -21,10 +23,17 @@ namespace OnlineQuizClasses.UserManagement
         public string ImageUrl { get; set; }
 
         public virtual Gender Gender { get; set; }
+
         public Role Role { get; set; }
         public bool IsInRole(int id)
         {
             return (Role != null && Role.Id == id);
+        }
+        public virtual List<Quiz> Quiz { get; set; }
+
+        public User()
+        {
+            Quiz = new List<Quiz>();
         }
     }
 }
