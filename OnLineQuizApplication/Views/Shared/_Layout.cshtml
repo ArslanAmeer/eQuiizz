@@ -1,8 +1,8 @@
 ﻿@using OnlineQuizClasses.UserManagement
 @{
-                /**/
+    /**/
 
-                User currentUser = (User)Session[WebUtils.Current_User];
+    User currentUser = (User)Session[WebUtils.Current_User];
 }
 <!DOCTYPE html>
 <html>
@@ -55,12 +55,16 @@
                     </li>
 
                 }
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Login", "Users")"><span class="fa fa-user fa-lg"></span>&nbsp; Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Signup", "Users")"><span class="fa fa-user-plus fa-lg"></span>&nbsp; Signup</a>
-                </li>
+                @if (currentUser == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Login", "Users")"><span class="fa fa-user fa-lg"></span>&nbsp; Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Signup", "Users")"><span class="fa fa-user-plus fa-lg"></span>&nbsp; Signup</a>
+                    </li>
+                }
+
             </ul>
         </div>
     </nav>
