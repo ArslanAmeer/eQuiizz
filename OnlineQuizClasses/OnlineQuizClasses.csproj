@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201809200823273_UserGender.Designer.cs">
       <DependentUpon>201809200823273_UserGender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809261908116_associateuserQuiz.cs" />
+    <Compile Include="Migrations\201809261908116_associateuserQuiz.Designer.cs">
+      <DependentUpon>201809261908116_associateuserQuiz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizContext.cs" />
@@ -119,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809200823273_UserGender.resx">
       <DependentUpon>201809200823273_UserGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809261908116_associateuserQuiz.resx">
+      <DependentUpon>201809261908116_associateuserQuiz.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
