@@ -1,5 +1,6 @@
 ﻿using OnlineQuizClasses.UserManagement;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace OnlineQuizClasses.QuizManagement
@@ -39,11 +40,11 @@ namespace OnlineQuizClasses.QuizManagement
             }
         }
 
-        public Quiz GetQuizByUser(User user)
+        public List<User> GetQuizByUser(int id)
         {
             using (_context)
             {
-                return (from c in _context.Quizzes where c.Id == user.Id select c).FirstOrDefault();
+                return (from c in _context.Users.Include(m => m.Quiz) where c.Id == id select c).ToList();
             }
         }
     }
