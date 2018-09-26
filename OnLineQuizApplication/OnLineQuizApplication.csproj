@@ -301,6 +301,8 @@
     <Content Include="Views\Users\EditUserAccont.cshtml" />
     <Content Include="Views\QuizHistory\QuizCreatedBy.cshtml" />
     <Content Include="Views\QuizHistory\Layout.cshtml" />
+    <Content Include="Views\QuizHistory\Result.cshtml" />
+    <Content Include="Views\Users\UserDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
