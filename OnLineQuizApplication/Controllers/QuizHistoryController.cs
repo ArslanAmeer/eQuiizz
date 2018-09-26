@@ -1,5 +1,6 @@
 ﻿using OnlineQuizClasses.QuizManagement;
 using OnlineQuizClasses.UserManagement;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace OnLineQuizApplication.Controllers
@@ -12,12 +13,16 @@ namespace OnLineQuizApplication.Controllers
             return View();
         }
 
-        public ActionResult QuizCreatedBy(User user)
+        public ActionResult QuizCreatedBy(int id)
         {
-            Quiz quiz = new QuizHandler().GetQuizByUser(user);
-            return View(quiz);
+            List<User> userbyquiz = new QuizHandler().GetQuizByUser(id);
+            return View(userbyquiz);
         }
 
+        public ActionResult Result()
+        {
+            return View();
+        }
         public ActionResult Layout()
         {
             return View();
