@@ -44,7 +44,7 @@ namespace OnlineQuizClasses.QuizManagement
         {
             using (_context)
             {
-                return (from c in _context.Users.Include(m => m.Quiz) where c.Id == id select c).ToList();
+                return (from c in _context.Users.Include(m => m.Quiz).Include(m => m.Role) where c.Id == id select c).ToList();
             }
         }
     }
