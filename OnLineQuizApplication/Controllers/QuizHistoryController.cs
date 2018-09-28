@@ -19,8 +19,14 @@ namespace OnLineQuizApplication.Controllers
             return View(userbyquiz);
         }
 
-        public ActionResult Result()
+        public ActionResult DeleteUserQuiz(int id)
         {
+            new QuizHandler().DeleteQuizbyUser(id);
+            return Json("Delete", JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Result(int id)
+        {
+            ViewBag.cquizId = id;
             return View();
         }
         public ActionResult Layout()
