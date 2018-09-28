@@ -3,23 +3,35 @@
     ViewBag.Title = "ConductQuiz";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int count = 0;
+    int srno = 1;
 }
 <link href="~/Content/MDB-Free/css/quiz.css" rel="stylesheet" />
-<h2>ConductQuiz</h2>
+<header>
+    <div class="text-center"> <h4>Lk'-Quiz Application</h4> </div>
+</header>
 @foreach (var v in Model)
 {
 
     <form class="question-form" id="q-@count" data-question="@count">
-        <h3>@v.Id.@v.Questions</h3>
+        <h3>@srno. &nbsp; &nbsp; @v.Questions</h3>
         <ul>
             <li><input type="radio" id="opt1-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt1-@count">@v.Option1</label></li>
             <li><input type="radio" id="opt2-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt2-@count">@v.Option2</label></li>
             <li><input type="radio" id="opt3-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt3-@count">@v.Option3</label></li>
             <li><input type="radio" id="opt4-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt4-@count">@v.Option4</label></li>
         </ul>
-        <button id="submit" class="btn btn-default">Submit</button>
+        @if (srno < v.Quiz.TotalQuestion)
+        {
+            <button id="submit" class="btn btn-default">Submit</button>
+        }
+        else
+        {
+            <a class="btn btn-default" href="@Url.Action("Result","QuizHistory",new {id=v.Quiz.Id})">Done</a>
+        }
+
     </form>
     count++;
+    srno++;
 
 
 }
