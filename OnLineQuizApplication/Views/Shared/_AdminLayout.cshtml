@@ -59,13 +59,20 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <div class="row">
+
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-9">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
