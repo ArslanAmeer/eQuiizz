@@ -1,5 +1,6 @@
 ﻿using OnlineQuizClasses;
 using OnlineQuizClasses.QuizManagement;
+using OnlineQuizClasses.UserManagement;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -36,12 +37,17 @@ namespace OnLineQuizApplication.Controllers
             }
             try
             {
+                User u = new User();
+                u = (User)Session[WebUtils.Current_User];
+                u.Quiz.Add(quiz);
                 //quiz.Question= new Question { Id = data["Question.Id"]};
 
                 QuizContext db = new QuizContext();
                 using (db)
                 {
-                    db.Quizzes.Add(quiz);
+                    db.Entry(u).State = EntityState.Unchanged;
+                    //db.Entry(u.Quiz).State = EntityState.Added;
+                    db.Quizzes.AddRange(u.Quiz);
                     db.SaveChanges();
                 }
             }
@@ -93,6 +99,13 @@ namespace OnLineQuizApplication.Controllers
         {
             List<Question> questions = new QuizHandler().GetAllQuestion(id);
             return View(questions);
+        }
+
+        public ActionResult QuizInstructions(int id)
+        {
+            ViewBag.quizid = id;
+
+            return View();
         }
     }
 }
