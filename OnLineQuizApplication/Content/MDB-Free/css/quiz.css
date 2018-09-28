@@ -15,14 +15,14 @@ li {
 }
 
 header {
-    background: #1f88f4;
+    background: rgb(149, 149, 149);
     padding: 5px 10px;
     color: #ffffff;
     overflow: auto;
 }
 
 footer {
-    background: #1f88f4;
+    background: #512DA8;
     padding: 5px 10px;
     color: #ffffff;
     overflow: auto;
