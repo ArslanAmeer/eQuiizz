@@ -1,0 +1,78 @@
+﻿@model IEnumerable<OnlineQuizClasses.QuizManagement.Quiz>
+@{
+    ViewBag.Title = "AllQuizes";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("~/Views/Admin/_DeleteQuiz.cshtml")
+<h2>AllQuizes</h2>
+<p>
+    @Html.ActionLink("Print", "PrintAll")
+</p>
+<table class="table">
+    <tr class="text-center text-white" style="background: purple">
+        <th>
+            @Html.DisplayNameFor(model => model.QuizTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalQuestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalTime)
+        </th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+                <a href='#centralModalSm' data-toggle="modal" id="@item.Id" class="hits btn btn-danger btn-sm"><span class="fa fa-trash"></span>&nbsp; Delete Quiz</a>
+            </td>
+        </tr>
+    }
+</table>
+<input type="hidden" id="hiddenOrderId" />
+<div style="margin-top: 7%"></div>
+@section myscript
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                alert(rid);
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                $.ajax({
+
+                    url: "/QuizHistory/DeleteUserQuiz/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-id").modal('hide');
+                        $("#row_" + delRecord).remove();
+                    }
+                });
+            });
+        });</script>
+}
