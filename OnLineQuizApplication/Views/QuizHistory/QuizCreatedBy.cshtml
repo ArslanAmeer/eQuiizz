@@ -3,26 +3,92 @@
     ViewBag.Title = "QuizCreatedBy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>QuizCreatedBy</h2>
-<div class="col-lg-10">
-    @foreach (var v in Model)
-    {
-        <div class="jumbotron">
-            <div>
-                @v.Fullname
-            </div>
-            <div>
-                @v.Role.Name
-            </div>
-            <div>
-                <img src="@Url.Content(v.ImageUrl)" style="width: 40px; height: 40px;border-radius: 50%" />
-            </div>
-            @foreach (var c in v.Quiz)
-            {
-                <strong>@c.QuizTitle</strong>
-                <strong>@c.TotalQuestion</strong>
-                <strong>@c.TotalTime</strong>
+@Html.Partial("~/Views/QuizHistory/_DeleteQuiz.cshtml")
+@section myStyles{
+    <style>
+
+        .quiz-bar {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 2px;
+            border: 1px solid maroon;
+            -webkit-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+            -moz-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+            box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @@media screen and (max-width:992px) {
+            .quiz-bar {
+                flex-direction: column;
             }
+        }
+    </style>
+}
+<h2>QuizCreatedBy</h2>
+@foreach (var v in Model)
+{
+
+    <h2>@v.Fullname</h2>
+    foreach (var c in v.Quiz)
+    {
+        <div class="quiz-bar">
+            <strong>QuizNo:@c.Id</strong>
+            <strong class="text-center" style="padding: 7px; border-radius: 3px; background: darkblue; color: aliceblue; width: auto; height: 40px;">@c.QuizTitle</strong>
+            <strong><i class="fa fa-check-circle"></i>&nbsp; TotalQuestions: @c.TotalQuestion</strong>
+            <strong><i class="fa fa-clock"></i>&nbsp; Total Time: @c.TotalTime</strong>
+            <a href="#" class="btn btn-orange btn-sm"><span class="fa fa-pencil-alt"></span>&nbsp; Edit Quiz</a>
+            <a href='#modal-id' data-toggle="modal" id="@v.Id" class="hits btn btn-danger btn-sm"><span class="fa fa-trash"></span>&nbsp; Delete Quiz</a>
         </div>
     }
-</div>
+
+}
+@*<div class="row">
+        <div class="col-lg-12">
+            <nav id="row_@v.Id" class="navbar navbar-dark" style="border: 1px solid maroon">
+                <strong>@v.Fullname</strong>
+                <img src="@Url.Content(v.ImageUrl)" style="width: 40px; height: 40px; border-radius: 50%" />
+                @foreach (var c in v.Quiz)
+                {
+                    <strong>QuizNo:@c.Id</strong>
+                    <strong class="text-center" style="padding: 7px; border-radius: 3px; background: darkblue; color: aliceblue; width: auto; height: 40px;">@c.QuizTitle</strong>
+                    <strong><i class="fa fa-check-circle"></i>&nbsp; TotalQuestions: @c.TotalQuestion</strong>
+                    <strong><i class="fa fa-clock"></i>&nbsp; Total Time: @c.TotalTime</strong>
+                }
+                <a href="#" class="btn btn-orange btn-sm waves-ripple"><span class="fa fa-pencil-alt"></span>&nbsp; Edit Quiz</a>
+                <a href='#modal-id' data-toggle="modal" id="@v.Id" class="hits btn btn-danger btn-sm"><span class="fa fa-trash"></span>&nbsp; Delete Quiz</a>
+            </nav>
+        </div>
+    </div>*@
+<input type="hidden" id="hiddenOrderId" />
+<div style="margin-top: 7%"></div>
+@section myscript
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".hits").click(function () {
+                var rid = $(this).attr("id");
+                alert(rid);
+                $("#hiddenOrderId").val(rid);
+                $("#modal-id").model('show');
+            });
+
+            $("#hit").click(function (event) {
+                var delRecord = $("#hiddenOrderId").val();
+                $.ajax({
+
+                    url: "/QuizHistory/DeleteUserQuiz/" + delRecord,
+                    type: "POST",
+                    data: { id: delRecord },
+                    success: function (result) {
+
+                        $("#modal-id").modal('hide');
+                        $("#row_" + delRecord).remove();
+                    }
+                });
+            });
+        });
+    </script>
+}
