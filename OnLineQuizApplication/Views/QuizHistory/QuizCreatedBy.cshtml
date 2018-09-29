@@ -4,31 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @Html.Partial("~/Views/QuizHistory/_DeleteQuiz.cshtml")
-@section myStyles{
-    <style>
-
-
-
-        .quiz-bar {
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 2px;
-            border: 1px solid maroon;
-            -webkit-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
-            -moz-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
-            box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        @@media screen and (max-width:992px) {
-            .quiz-bar {
-                flex-direction: column;
-            }
-        }
-    </style>
-}
 <h2>QuizCreatedBy</h2>
 @foreach (var v in Model)
 {
@@ -38,7 +13,7 @@
     {
         <div class="quiz-bar">
             <strong>QuizNo:@c.Id</strong>
-            <strong class="text-center" style="padding: 7px; border-radius: 3px; background: darkblue; color: aliceblue; width: auto; height: 40px;">@c.QuizTitle</strong>
+            <strong class="text-center quiz-title">@c.QuizTitle</strong>
             <strong><i class="fa fa-check-circle"></i>&nbsp; TotalQuestions: @c.TotalQuestion</strong>
             <strong><i class="fa fa-clock"></i>&nbsp; Total Time: @c.TotalTime</strong>
             <a href="#" class="btn btn-orange btn-sm"><span class="fa fa-pencil-alt"></span>&nbsp; Edit Quiz</a>
