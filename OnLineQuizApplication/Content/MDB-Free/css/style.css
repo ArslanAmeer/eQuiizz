@@ -20,3 +20,31 @@
     border-radius: 21px;
     padding: 5px;
 }
+
+.quiz-bar {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid maroon;
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+    -moz-box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+    box-shadow: 0px 0px 12px 1px rgba(67,0,0,1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width:992px) {
+    .quiz-bar {
+        flex-direction: column;
+    }
+}
+
+.quiz-title {
+    padding: 7px;
+    border-radius: 3px;
+    background: darkblue;
+    color: aliceblue;
+    width: auto;
+    height: 40px;
+}
