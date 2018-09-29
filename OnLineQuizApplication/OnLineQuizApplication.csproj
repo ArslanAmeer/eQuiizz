@@ -320,6 +320,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Admin\AllQuizes.cshtml" />
+    <Content Include="Views\QuizHistory\_DeleteQuiz.cshtml" />
+    <Content Include="Views\Admin\_DeleteQuiz.cshtml" />
+    <Content Include="Views\Quiz\QuizInstructions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
