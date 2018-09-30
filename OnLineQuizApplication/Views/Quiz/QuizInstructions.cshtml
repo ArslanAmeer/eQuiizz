@@ -3,5 +3,18 @@
     ViewBag.Title = "QuizInstructions";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>QuizInstructions</h2>
-<a href="@Url.Action("ConductQuiz","Quiz",new{id=ViewBag.quizid})" class="btn btn-default">Getting Start</a>
+<h2 class="text-center mt-5">QuizInstructions</h2>
+<div class="col-lg-10" style="margin: auto;">
+    <div class="jumbotron text-center" style="border:1px solid maroon">
+        <ul>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+            <li>Read The Question CareFully then Mark the Correct Answer if You Click the Next Button you will no Move Back. </li>
+        </ul>
+        <a href="@Url.Action("ConductQuiz","Quiz",new{id=ViewBag.quizid})" class="btn btn-default"><span class="fa fa-thumbs-up"></span>&nbsp; Getting Start</a>
+    </div>
+</div>
