@@ -70,11 +70,12 @@
     </nav>
     <div class="container">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
     </div>
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-    </footer>
+
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
