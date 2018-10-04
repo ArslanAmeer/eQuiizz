@@ -3,9 +3,9 @@
     ViewBag.Title = "UserAccount";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class=" col-lg-6 offset-3 text-center card mb-4 " style="margin-top: 8%">
-    <div class="card-body">
-        <img alt="" src="@Url.Content(Model.ImageUrl)" style="border-radius: 50%;" class="img-thumbnail" height="200" width="200">
+<div class=" col-lg-6 text-center card" style="margin: auto; margin-top: 150px;border:2px solid maroon">
+    <div>
+        <img alt="" src="@Url.Content(Model.ImageUrl)" style="border: 5px dotted maroon; border-bottom:none; border-left:none; border-right: none; border-radius: 50%;margin-top: -100px" class="img-thumbnail" height="150" width="150">
     </div>
     <hr />
     <div class="card-body">
@@ -41,4 +41,4 @@
             <i class="fa fa-sign-out-alt ml-2"></i>
         </a>
     </div>
-</section>
+</div>
