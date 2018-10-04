@@ -4,16 +4,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     int count = 0;
     int srno = 1;
+
+    var endTime = DateTime.UtcNow.AddSeconds(65);
+    var remainnigTime = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds.ToString("#");
 }
 <link href="~/Content/MDB-Free/css/quiz.css" rel="stylesheet" />
-<header>
-    <div class="text-center"> <h4>Lk'-Quiz Application</h4> </div>
-</header>
+<section class="header">
+    <div class="text-center">
+        <h4 class="float-left mt-1">@Model.First().Quiz.QuizTitle  Quiz</h4>
+        <h4 class="float-right mt-1"><span class="fa fa-clock"></span>&nbsp; @Model.First().Quiz.TotalTime</h4>
+        <p class="text-center">Total Remainning Time:<span id="minRemainning"></span>:<span id="secRemaninning"></span></p>
+    </div>
+</section>
 @foreach (var v in Model)
 {
 
-    <form class="question-form" id="q-@count" data-question="@count">
-        <h3>@srno. &nbsp; &nbsp; @v.Questions</h3>
+    <form class="question-form mt-4" id="q-@count" data-question="@count">
+        <h3>@srno.&nbsp; @v.Questions</h3>
         <ul>
             <li><input type="radio" id="opt1-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt1-@count">@v.Option1</label></li>
             <li><input type="radio" id="opt2-@count" name="usman-@count" />&nbsp;&nbsp;<label for="opt2-@count">@v.Option2</label></li>
@@ -28,7 +35,6 @@
         {
             <a class="btn btn-default" href="@Url.Action("Result","QuizHistory",new {id=v.Quiz.Id})">Done</a>
         }
-
     </form>
     count++;
     srno++;
@@ -37,3 +43,36 @@
 }
 <script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
 <script src="~/Content/MDB-Free/js/quiz.js"></script>
+<script type="text/javascript">
+    function StartTicks() {
+        alert("alert");
+        var secRem =@remainnigTime;
+        var seccounter = secRem % 60;
+
+        function formateNumber(number) {
+            if (number < 10) return '0' + number;
+            else return '' + number;
+        }
+
+        document.getElementById('secRemaninning').innerHTML = formateNumber(secRem);
+        document.getElementById('minRemainning').innerHTML = formateNumber(parseInt(secRem / 60));
+        var _tick = setInterval(function () {
+            if (secRem>0) {
+
+
+            secRem = secRem - 1;
+            seccounter = seccounter - 1;
+            document.getElementById('secRemaninning').innerHTML = formateNumber(secRem);
+            document.getElementById('minRemainning').innerHTML = formateNumber(parseInt(secRem / 60));
+
+            if (seccounter == 0) {
+                seccounter = 60;
+                }
+            } else {
+                alert("Your Test Time Has Expire...!");
+                clearInterval(_tick);
+            }
+
+        },1000);
+    }
+</script>
