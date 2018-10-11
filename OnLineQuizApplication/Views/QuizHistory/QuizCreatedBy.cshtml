@@ -11,7 +11,7 @@
     <h2>@v.Fullname</h2>
     foreach (var c in v.Quiz)
     {
-        <div class="quiz-bar">
+        <div id="row_@c.Id" class="quiz-bar">
             <strong>QuizNo:@c.Id</strong>
             <strong class="text-center quiz-title">@c.QuizTitle</strong>
             <strong><i class="fa fa-check-circle"></i>&nbsp; TotalQuestions: @c.TotalQuestion</strong>
