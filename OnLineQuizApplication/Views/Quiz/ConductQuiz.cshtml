@@ -13,7 +13,7 @@
     <div class="text-center">
         <h4 class="float-left mt-1">@Model.First().Quiz.QuizTitle  Quiz</h4>
         <h4 class="float-right mt-1"><span class="fa fa-clock"></span>&nbsp; @Model.First().Quiz.TotalTime</h4>
-        <p class="text-center">Total Remainning Time:<span id="minRemainning"></span>:<span id="secRemaninning"></span></p>
+        <h4 class="text-center mt-2">Remainning Time:<span id="minRemainning"></span>:<span id="secRemaninning"></span></h4>
     </div>
 </section>
 @foreach (var v in Model)
@@ -41,38 +41,39 @@
 
 
 }
-<script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
-<script src="~/Content/MDB-Free/js/quiz.js"></script>
 <script type="text/javascript">
-    function StartTicks() {
-        alert("alert");
-        var secRem =@remainnigTime;
+
+   var secRem =@remainnigTime;
         var seccounter = secRem % 60;
 
         function formateNumber(number) {
             if (number < 10) return '0' + number;
             else return '' + number;
         }
-
-        document.getElementById('secRemaninning').innerHTML = formateNumber(secRem);
-        document.getElementById('minRemainning').innerHTML = formateNumber(parseInt(secRem / 60));
+        function StartTicks() {
+        document.getElementById('secRemaninning').innerText = formateNumber(seccounter);
+        document.getElementById('minRemainning').innerText = formateNumber(parseInt(secRem / 60));
         var _tick = setInterval(function () {
-            if (secRem>0) {
+            if (secRem > 0) {
 
 
-            secRem = secRem - 1;
-            seccounter = seccounter - 1;
-            document.getElementById('secRemaninning').innerHTML = formateNumber(secRem);
-            document.getElementById('minRemainning').innerHTML = formateNumber(parseInt(secRem / 60));
+                secRem = secRem - 1;
+                seccounter = seccounter - 1;
+                document.getElementById('secRemaninning').innerText = formateNumber(seccounter);
+                document.getElementById('minRemainning').innerText = formateNumber(parseInt(secRem / 60));
 
-            if (seccounter == 0) {
-                seccounter = 60;
+                if (seccounter == 0) {
+                    seccounter = 60;
                 }
             } else {
                 alert("Your Test Time Has Expire...!");
                 clearInterval(_tick);
             }
 
-        },1000);
-    }
+        }, 1000);
+        }
+
+    StartTicks();
 </script>
+<script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
+<script src="~/Content/MDB-Free/js/quiz.js"></script>
