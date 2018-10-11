@@ -48,19 +48,25 @@ namespace OnlineQuizClasses.QuizManagement
             }
         }
 
-        public Quiz DeleteQuizbyUser(int id)
-        {
-            using (_context)
-            {
-                Quiz p = (from c in _context.Quizzes
-                          where c.Id == id
-                          select c).FirstOrDefault();
+        //public User DeleteQuizbyUser(int id)
+        //{
+        //    using (_context)
+        //    {
+        //        User p = (from c in _context.Users
+        //                  where c.Id == id
+        //                  select c).FirstOrDefault();
+        //        if (p != null)
+        //        {
 
-                _context.Entry(p).State = EntityState.Deleted;
-                _context.SaveChanges();
-                return p;
-            }
-        }
+        //            _context.Entry(p.Quiz).State = EntityState.Deleted;
+
+        //        }
+        //        _context.SaveChanges();
+        //        return p;
+
+
+        //    }
+        //}
 
         public Quiz DeleteUserQuiz(int id)
         {
