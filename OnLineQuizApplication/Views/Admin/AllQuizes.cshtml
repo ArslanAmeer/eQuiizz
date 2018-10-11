@@ -26,7 +26,7 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr class="text-center">
+        <tr id="row_@item.Id" class="text-center">
             <td>
                 @Html.DisplayFor(modelItem => item.QuizTitle)
             </td>
@@ -64,7 +64,7 @@
                 var delRecord = $("#hiddenOrderId").val();
                 $.ajax({
 
-                    url: "/QuizHistory/DeleteUserQuiz/" + delRecord,
+                    url: "/Admin/DeleteQuiz/" + delRecord,
                     type: "POST",
                     data: { id: delRecord },
                     success: function (result) {
