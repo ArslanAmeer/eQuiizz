@@ -63,6 +63,7 @@ window.addEventListener('load', init, false);
 
 
 
+
 //if (q === 'q1') {
 //    var submitted = $('input[name=q1]:checked').val();
 //    if (submitted === sessionStorage.a1) {
