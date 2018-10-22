@@ -108,13 +108,9 @@ namespace OnLineQuizApplication.Controllers
             return View();
         }
 
+
+
+
+
     }
 }
-//public int QuestionCount(int id)
-//{
-//    QuizContext db = new QuizContext();
-//    using (db)
-//    {
-//        return (from c in db.Questions where c.Quiz.Id == id select c).Count();
-//    }
-//}
