@@ -5,7 +5,7 @@
     int count = 0;
     int srno = 1;
 
-    var endTime = DateTime.UtcNow.AddSeconds(65);
+    var endTime = DateTime.UtcNow.AddSeconds(10);
     var remainnigTime = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds.ToString("#");
 }
 <link href="~/Content/MDB-Free/css/quiz.css" rel="stylesheet" />
@@ -67,6 +67,11 @@
                 }
             } else {
                 alert("Your Test Time Has Expire...!");
+                debugger;
+
+                var id = @Model.First().Quiz.Id;
+                var url = "http://localhost:57752/QuizHistory/Result/" + id;
+                window.location.replace(url);
                 clearInterval(_tick);
             }
 
@@ -74,6 +79,11 @@
         }
 
     StartTicks();
+
+
+
+
+
 </script>
 <script src="~/Content/MDB-Free/js/jquery-3.3.1.min.js"></script>
 <script src="~/Content/MDB-Free/js/quiz.js"></script>
